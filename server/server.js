@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import connectDB from "./configs/mongodb.js";
+import userRouter from "./routes/userRoutes.js";
 
 //App config
 const app = express();
@@ -16,6 +17,8 @@ app.use(cors());
 app.get("/", async (req, res) => {
   res.send("API Working 🚀");
 });
+app.use('/api/user',userRouter)
+
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
