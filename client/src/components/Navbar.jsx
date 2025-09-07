@@ -1,7 +1,7 @@
 import { MoveRight } from "lucide-react";
 import { assets } from "../assets/assets";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@/context/appContext";
@@ -10,6 +10,7 @@ const Navbar = () => {
   const { openSignIn } = useClerk();
   const { isSignedIn, user } = useUser();
   const { credit, loadCreditsData } = useContext(AppContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isSignedIn) {
@@ -24,7 +25,10 @@ const Navbar = () => {
       </Link>
       {isSignedIn ? (
         <div className="flex gap-2 items-center justify-center">
-          <button className=" border rounded-full  flex justify-center items-center gap-2  p-3 bg-blue-100 hover:scale-105 transition-all duration-300">
+          <button
+            onClick={() => navigate("/buy")}
+            className=" border rounded-full  flex justify-center items-center gap-2  p-3 bg-blue-100 hover:scale-105 transition-all duration-300"
+          >
             <img src={assets.credit_icon} alt="" className="h-6 w-6" />
             <p>
               Credits : <span className="text-gray-700"> {credit} </span>

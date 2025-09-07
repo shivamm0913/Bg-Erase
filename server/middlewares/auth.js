@@ -22,7 +22,7 @@ const authUser = async (req, res, next) => {
     }
 
      if(!req.body){ req.body = {} }
-     req.body.clerkId = token_decode.clerkId 
+     req.body.clerkId = token_decode.clerkId || token_decode.sub
      next();
   } catch (error) {
     console.log(error.message);
