@@ -17,6 +17,7 @@ app.use(cors());
 app.get("/", async (req, res) => {
   res.send("API Working 🚀");
 });
+
 app.use('/api/user',userRouter)
 
 
