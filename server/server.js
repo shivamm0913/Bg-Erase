@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./configs/mongodb.js";
 import userRouter from "./routes/userRoutes.js";
+import imageRouter from "./routes/imageRoute.js";
 
 //App config
 const app = express();
@@ -18,8 +19,8 @@ app.get("/", async (req, res) => {
   res.send("API Working 🚀");
 });
 
-app.use('/api/user',userRouter)
-
+app.use("/api/user", userRouter);
+app.use("/api/image/", imageRouter);
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {

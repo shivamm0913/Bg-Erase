@@ -12,8 +12,8 @@ const Navbar = () => {
   const { credit, loadCreditsData } = useContext(AppContext);
 
   useEffect(() => {
-    if(isSignedIn){
-      loadCreditsData()
+    if (isSignedIn) {
+      loadCreditsData();
     }
   }, [isSignedIn]);
 
@@ -23,14 +23,18 @@ const Navbar = () => {
         <img src={assets.logo} alt="" className="w-32 sm:w-44" />
       </Link>
       {isSignedIn ? (
-        <div>
+        <div className="flex gap-2 items-center justify-center">
+          <button className=" border rounded-full  flex justify-center items-center gap-2  p-3 bg-blue-100 hover:scale-105 transition-all duration-300">
+            <img src={assets.credit_icon} alt="" className="h-6 w-6" />
+            <p>
+              Credits : <span className="text-gray-700"> {credit} </span>
+            </p>
+          </button>
+          <p className="text-gray-600 max-sm:hidden">Hi, {user.fullName}</p>
           <UserButton />
         </div>
       ) : (
-        <div
-          onClick={() => openSignIn({})}
-          className=" text-sm rounded-full "
-        >
+        <div onClick={() => openSignIn({})} className=" text-sm rounded-full ">
           <InteractiveHoverButton className="text-black px-4 py-2 sm:px-8 sm:py-3">
             Get Started
           </InteractiveHoverButton>

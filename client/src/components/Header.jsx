@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Upload } from "lucide-react";
 import { assets } from "@/assets/assets";
+import { AppContext } from "@/context/appContext";
 
 const Header = () => {
+
+    const {removeBg} = useContext(AppContext)
+
+
+
   return (
     <section className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-20">
       <div className="container mx-auto max-w-6xl flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-0 gap-10">
@@ -18,7 +24,7 @@ const Header = () => {
             projects.
           </p>
           <div className="flex md:w-[50%] border-2 border-dashed border-gray-300 rounded-lg  items-center justify-center hover:border-blue-500 hover:bg-blue-50 transition-all duration-300 cursor-pointer">
-            <input type="file" id="upload1" hidden />
+            <input type="file" id="upload1" hidden onChange={ e =>removeBg(e.target.files[0])} accept="image/*" />
             <label
               htmlFor="upload1"
               className="flex p-2 items-center justify-center gap-3 cursor-pointer"

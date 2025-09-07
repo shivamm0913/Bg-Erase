@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 const authUser = async (req, res, next) => {
   try {
     const { token } = req.headers;
-    console.log(token);
+    
     if (!token) {
       return res.json({
         success: false,
@@ -13,7 +13,7 @@ const authUser = async (req, res, next) => {
       });
     }
     const token_decode = jwt.decode(token);
-    
+
    if (!token_decode || !token_decode.sub) {
       return res.json({
         success: false,
@@ -21,7 +21,8 @@ const authUser = async (req, res, next) => {
       });
     }
 
-     req.body.clerkId = token_decode.clerkId
+     if(!req.body){ req.body = {} }
+     req.body.clerkId = token_decode.clerkId 
      next();
   } catch (error) {
     console.log(error.message);
