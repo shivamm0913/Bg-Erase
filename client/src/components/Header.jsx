@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Upload } from "lucide-react";
 import { assets } from "@/assets/assets";
-import { AppContext } from "@/context/appContext";
+import { AppContext } from "@/context/AppContext";
 
 const Header = () => {
 

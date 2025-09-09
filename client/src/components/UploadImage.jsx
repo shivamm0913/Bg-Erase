@@ -1,4 +1,4 @@
-import { AppContext } from "@/context/appContext";
+import { AppContext } from "@/context/AppContext";
 import { Upload } from "lucide-react";
 import React, { useContext } from "react";
 
