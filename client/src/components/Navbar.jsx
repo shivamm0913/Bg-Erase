@@ -4,12 +4,12 @@ import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Link, useNavigate } from "react-router-dom";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { useContext, useEffect } from "react";
-import { AppContext } from "@/context/appContext";
+import { appContext } from "@/context/appContext";
 
 const Navbar = () => {
   const { openSignIn } = useClerk();
   const { isSignedIn, user } = useUser();
-  const { credit, loadCreditsData } = useContext(AppContext);
+  const { credit, loadCreditsData } = useContext(appContext);
   const navigate = useNavigate();
 
   useEffect(() => {

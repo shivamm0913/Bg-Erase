@@ -4,9 +4,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-export const AppContext = createContext();
+export const appContext = createContext();
 
-const AppContextProvider = (props) => {
+const appContextProvider = (props) => {
   const [credit, setCredit] = useState(false);
   const [image, setImage] = useState(false);
   const [resultImage, setResultImage] = useState(false);
@@ -85,8 +85,8 @@ const AppContextProvider = (props) => {
   };
 
   return (
-    <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
+    <appContext.Provider value={value}>{props.children}</appContext.Provider>
   );
 };
 
-export default AppContextProvider;
+export default appContextProvider;

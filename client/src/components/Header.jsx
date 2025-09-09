@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { Upload } from "lucide-react";
 import { assets } from "@/assets/assets";
-import { AppContext } from "@/context/AppContext";
+import { appContext } from "@/context/appContext";
 
 const Header = () => {
 
-    const {removeBg} = useContext(AppContext)
+    const {removeBg} = useContext(appContext)
 
 
 
