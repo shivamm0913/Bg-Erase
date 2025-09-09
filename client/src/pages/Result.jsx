@@ -1,10 +1,10 @@
-import { appContext } from "@/context/appContext";
+import { AppContext } from "@/context/appContext";
 import { Download } from "lucide-react";
 import React, { useContext } from "react";
 
 const Result = () => {
-  const { resultImage, image } = useContext(appContext);
-  const {removeBg} = useContext(appContext)
+  const { resultImage, image } = useContext(AppContext);
+  const {removeBg} = useContext(AppContext)
   return (
     <div className="mx-4 my-3 lg:mx-44 mt-14 min-h-[75vh]">
       <div className="bg-white rounded-lg px-8 py-6 drop-shadow-sm">

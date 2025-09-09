@@ -1,10 +1,10 @@
-import { appContext } from "@/context/appContext";
+import { AppContext } from "@/context/appContext";
 import { Upload } from "lucide-react";
 import React, { useContext } from "react";
 
 const UploadImage = () => {
 
-  const {removeBg} = useContext(appContext)
+  const {removeBg} = useContext(AppContext)
 
   return (
     <div className="pb-16 bg-slate-50 ">
